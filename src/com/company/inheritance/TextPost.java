@@ -2,7 +2,7 @@ package com.company.inheritance;
 
 public class TextPost extends Post implements Printable {
 
-    int MAX_MEDIA_POST_LENGTH = 500;
+    private static final int MAX_MEDIA_POST_LENGTH = 500;
 
     public TextPost(String author, String date, String message, MessageType type) {
         super(author, date, message, type);

@@ -2,9 +2,9 @@ package com.company.inheritance;
 
 public class ImageMediaPost extends MediaPost implements Printable {
 
-    boolean imageCompression = false;
-    int widthInPx;
-    int heightInPx;
+    private boolean imageCompression;
+    private int widthInPx;
+    private int heightInPx;
 
     public ImageMediaPost(String author, String date, String message, MessageType type, int widthInPx, int heightInPx) {
         super(author, date, message, type);
@@ -27,6 +27,6 @@ public class ImageMediaPost extends MediaPost implements Printable {
 
     @Override
     public void print() {
-        System.out.println("Printing an image from " + type.toString().toLowerCase());
+        System.out.println("Printing an image from " + type.name().toLowerCase());
     }
 }

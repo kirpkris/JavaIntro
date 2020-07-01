@@ -2,17 +2,16 @@ package com.company.exceptions;
 
 public class Dishwasher {
 
-    int items;
-    int maxLoad;
-    State dishwasherState;
+    private int items;
+    private int maxLoad;
+    private State dishwasherState;
 
-    public Dishwasher(int maxLoad) throws IllegalArgumentException {
+    public Dishwasher(int maxLoad) {
         if (maxLoad == 0 || maxLoad < 0) {
             throw new IllegalArgumentException("Invalid maximum dishwasher load");
-        } else {
-            this.maxLoad = maxLoad;
-            dishwasherState = State.ON;
         }
+        this.maxLoad = maxLoad;
+        dishwasherState = State.ON;
     }
 
     public int getMaxLoad() {
@@ -34,17 +33,16 @@ public class Dishwasher {
      * @throws IllegalArgumentException if items = 0 or more than maxLoad
      * @throws InvalidStateException if dishwasherState is not ON
      */
-    public void runDishwasher() throws RuntimeException {
+    public void runDishwasher() {
         if (items > maxLoad) {
             throw new IllegalArgumentException("The number of loaded items exceeds capacity");
         } else if (items == 0) {
             throw new IllegalArgumentException("The dishwasher is empty");
         } else if (dishwasherState != State.ON) {
             throw new InvalidStateException("Please, stop/unload the dishwasher first");
-        } else {
-            dishwasherState = State.RUNNING;
-            System.out.println("The dishwasher is running");
         }
+        dishwasherState = State.RUNNING;
+        System.out.println("The dishwasher is running");
     }
 
     /**
@@ -52,13 +50,12 @@ public class Dishwasher {
      *
      * @throws InvalidStateException if dishwasherState is not RUNNING
      */
-    public void stopDishwasher() throws InvalidStateException {
+    public void stopDishwasher() {
         if (dishwasherState != State.RUNNING) {
             throw new InvalidStateException("The dishwasher is not running");
-        } else {
-            dishwasherState = State.UNLOADING;
-            System.out.println("The dishwasher is stopped");
         }
+        dishwasherState = State.UNLOADING;
+        System.out.println("The dishwasher is stopped");
     }
 
     /**
@@ -67,14 +64,13 @@ public class Dishwasher {
      * @throws IllegalArgumentException if items = maxLoad
      * @throws InvalidStateException if dishwasherState is not ON
      */
-    public void loadItem() throws RuntimeException {
+    public void loadItem() {
         if (items == maxLoad) {
             throw new IllegalArgumentException("The dishwasher is full");
         } else if (dishwasherState != State.ON) {
             throw new InvalidStateException("You cannot load dishes while the dishwasher is running/unloading");
-        } else {
-            items++;
         }
+        items++;
     }
 
     /**
@@ -82,16 +78,15 @@ public class Dishwasher {
      *
      * @throws InvalidStateException if dishwasherState is not UNLOADING
      */
-    public void unloadItems() throws InvalidStateException {
+    public void unloadItems() {
         if (dishwasherState == State.ON) {
             throw new InvalidStateException("The washing cycle hasn't been run yet");
         } else if (dishwasherState == State.RUNNING) {
             throw new InvalidStateException("Please wait until washing cycle is finished");
-        } else {
-            items = 0;
-            dishwasherState = State.ON;
-            System.out.println("The dishwasher is ready to go");
         }
+        items = 0;
+        dishwasherState = State.ON;
+        System.out.println("The dishwasher is ready to go");
     }
 
 }

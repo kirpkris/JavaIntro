@@ -2,9 +2,9 @@ package com.company.inheritance;
 
 public class AudioMediaPost extends MediaPost implements Playable {
 
-    double lengthInMin;
-    String audioAuthor;
-    String audioName;
+    private double lengthInMin;
+    private String audioAuthor;
+    private String audioName;
 
 
     public AudioMediaPost(String author, String date, String message, MessageType type, String audioAuthor, String audioName) {

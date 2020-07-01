@@ -9,9 +9,9 @@ public class CollectionsMain {
         System.out.println("============== 1. Реализовать метод, который принимает на вход 2 листа и возвращает лист, состоящий только из тех элементов, которые присутствуют в обоих листах.");
 
         User user1 = new User(20, "Amy");
-        User user2 = new User(30, "Bob");
+        User user2 = new User(35, "Alice");
         User user3 = new User(35, "Alice");
-        User user4 = new User(30, "Alex");
+        User user4 = new User(30, "Kate");
         User user5 = new User(30, "Kate");
 
         // List
@@ -49,44 +49,37 @@ public class CollectionsMain {
             System.out.println(el.getName() + ": " + el.getAge());
         }
 
-
         System.out.println("============== 3. Создайте ArrayList с несколькими элементами (используя дубликаты) и проитерируйтесь по нему, выводя на консоль информацию в виде: <индекс>: <элемент>");
 
-        List<String> count = new ArrayList<>();
-        count.add("one");
-        count.add("two");
-        count.add("three");
-        count.add("two");
-        count.add("five");
-        count.add("one");
+        List<User> usersList = new ArrayList<>();
+        usersList.add(user1);
+        usersList.add(user2);
+        usersList.add(user3);
+        usersList.add(user4);
+        usersList.add(user5);
 
-        ListIterator<String> countListIterator = count.listIterator();
+        ListIterator<User> usersListIterator = usersList.listIterator();
 
-        while (countListIterator.hasNext()) {
-           System.out.println(countListIterator.nextIndex() + " : " + countListIterator.next());
+        while (usersListIterator.hasNext()) {
+           System.out.println(usersListIterator.nextIndex() + " : " + usersListIterator.next());
         }
 
         System.out.println("============== 4. Создайте HashSet с несколькими элементами (используя дубликаты) и проитерируйтесь по нему, выводя на консоль информацию в виде: <элемент>");
 
-        HashSet<String> weekdaySet = new HashSet<>();
-        weekdaySet.add("Friday");
-        weekdaySet.add("Monday");
-        weekdaySet.add("Tuesday");
-        weekdaySet.add("Sunday");
-        weekdaySet.add("Wednesday");
-        weekdaySet.add("Thursday");
-        weekdaySet.add("Friday");
-        weekdaySet.add("Saturday");
-        weekdaySet.add("Sunday");
-        weekdaySet.add("Thursday");
+        Set<User> usersSet = new HashSet<>();
+        usersSet.add(user1);
+        usersSet.add(user2);
+        usersSet.add(user3);
+        usersSet.add(user4);
+        usersSet.add(user5);
 
-        for (Iterator<String> weekdayIterator = weekdaySet.iterator(); weekdayIterator.hasNext();) {
-            System.out.println(weekdayIterator.next());
+        for (User user : usersSet) {
+            System.out.println(user);
         }
 
         System.out.println("============== 5. Создайте HashMap с несколькими элементами (используя дубликаты) и проитерируйтесь по нему, выводя на консоль информацию в виде:");
 
-        HashMap<Integer, String> filesCollection = new HashMap<>();
+        Map<Integer, String> filesCollection = new HashMap<>();
         filesCollection.put(12345, "fileCSV");
         filesCollection.put(54321, "fileJSON");
         filesCollection.put(12545, "fileTXT");

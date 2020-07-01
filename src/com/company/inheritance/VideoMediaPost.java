@@ -2,9 +2,7 @@ package com.company.inheritance;
 
 public class VideoMediaPost extends MediaPost implements Playable {
 
-    String title;
-    boolean autoSubtitles = false;
-    boolean autoPlay = false;
+    private String title;
 
     public VideoMediaPost(String author, String date, String message, MessageType type, String title) {
         super(author, date, message, type);
@@ -12,7 +10,6 @@ public class VideoMediaPost extends MediaPost implements Playable {
     }
 
     public void setAutoSubtitles(boolean autoSubtitles) {
-        this.autoSubtitles = autoSubtitles;
         if (autoSubtitles) {
             System.out.println("Auto-subtitles are on");
         } else {
@@ -21,7 +18,6 @@ public class VideoMediaPost extends MediaPost implements Playable {
     }
 
     public void setAutoPlay(boolean autoPlay) {
-        this.autoPlay = autoPlay;
         if(autoPlay) {
             System.out.println("Uploaded video will be played automatically");
         }

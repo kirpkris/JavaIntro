@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class User {
 
-    int age;
-    String name;
+    private int age;
+    private String name;
 
 
     public User(int age, String name) {
